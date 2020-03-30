@@ -4,6 +4,19 @@ import AppRouter from "./routers/AppRouter";
 import { createBrowserHistory } from "history";
 import { createGlobalStyle } from "styled-components";
 
+const history = createBrowserHistory();
+
+export default () => {
+  return (
+    <>
+      <Router history={history}>
+        <AppRouter />
+      </Router>
+      <GlobalStyle />
+    </>
+  );
+};
+
 const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,600,800&display=swap');
   *,*::before, *::after {
@@ -20,16 +33,3 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1rem;
   }
 `;
-
-const history = createBrowserHistory();
-
-export default () => {
-  return (
-    <>
-      <GlobalStyle />
-      <Router history={history}>
-        <AppRouter />
-      </Router>
-    </>
-  );
-};

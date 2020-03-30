@@ -1,7 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,600,800&display=swap');
   *,*::before, *::after {
     margin: 0;
     padding: 0;

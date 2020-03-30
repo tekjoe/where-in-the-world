@@ -12,6 +12,10 @@ const AppWithHelmet = () => {
           name="description"
           content="Flaggy – A Frontend Mentor Challenge"
         />
+        <style>
+          @import
+          url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,600,800&display=swap');
+        </style>
       </Helmet>
       <App />
     </>

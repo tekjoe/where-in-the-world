@@ -30,8 +30,8 @@ CountryList.Search = styled.div`
 const SearchInput = styled.input`
   width: 100%;
   border-radius: 0.5rem;
-  background: #2b3743;
-  color: hsl(0, 0%, 100%);
+  background: ${({ theme }) => theme.elementBackground};
+  color: ${({ theme }) => theme.color};
   box-shadow: 0 2px 20px 0px rgba(0, 0, 0, 0.15);
   border: none;
   padding: 1.5rem;
@@ -58,7 +58,7 @@ export default () => {
       setData({ countries: result.data });
     }
     getData();
-  });
+  }, []);
 
   let filteredCountries = data.countries
     .filter(

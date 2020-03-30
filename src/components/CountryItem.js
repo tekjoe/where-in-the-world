@@ -1,10 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-const CountryItem = styled.article`
+const CountryItem = styled(Link)`
   border-radius: 0.5rem;
-  background: #2b3743;
-  box-shadow: 0 2px 20px 0px rgba(0, 0, 0, 0.15);
+  background: ${({ theme }) => theme.elementBackground};
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
+  text-decoration: none;
+  color: inherit;
 `;
 
 CountryItem.Image = styled.img`
@@ -26,9 +29,9 @@ CountryItem.Body = styled.div`
 `;
 
 export default ({ country }) => {
-  const { name, population, region, flag, capital } = country;
+  const { name, population, region, flag, capital, alpha3Code } = country;
   return (
-    <CountryItem>
+    <CountryItem to={`country/${alpha3Code}/`}>
       <CountryItem.Image src={flag} />
       <CountryItem.Body>
         <h4>{name}</h4>

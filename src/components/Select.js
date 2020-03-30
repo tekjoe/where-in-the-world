@@ -4,8 +4,8 @@ import styled from "styled-components";
 const Select = styled.div`
   position: relative;
   border-radius: 0.5rem;
-  background: #2b3743;
-  color: hsl(0, 0%, 100%);
+  background: ${({ theme }) => theme.elementBackground};
+  color: ${({ theme }) => theme.color};
   box-shadow: 0 2px 20px 0px rgba(0, 0, 0, 0.15);
   border: none;
   padding: 1.5rem;
@@ -33,11 +33,10 @@ Select.Trigger = styled.div`
 Select.Options = styled.div`
   position: absolute;
   border-radius: 0.5rem;
-  background: #2b3743;
-  color: hsl(0, 0%, 100%);
+  background: ${({ theme }) => theme.elementBackground};
+  color: ${({ theme }) => theme.color};
   box-shadow: 0 2px 20px 0px rgba(0, 0, 0, 0.15);
   border: none;
-  padding: 1.5rem;
   font-size: 1rem;
   display: ${({ isToggled }) => (isToggled ? "flex" : "none")};
   flex-direction: column;
@@ -45,11 +44,15 @@ Select.Options = styled.div`
 `;
 
 Select.Option = styled.span`
+  padding: 1rem;
   display: block;
-  margin-bottom: 1rem;
   cursor: pointer;
   &:last-of-type {
     margin-bottom: 0;
+  }
+  &:hover {
+    background: ${({ theme }) => theme.elementBackground};
+    border-radius: 0.5rem;
   }
 `;
 

@@ -1,16 +1,16 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import HomePage from "../components/HomePage";
 import Header from "../components/Header";
 import CountryPage from "../components/CountryPage";
 
-const AppRouter = () => {
+const AppRouter = ({ toggleTheme, theme }) => {
   return (
     <>
-      <Header />
+      <Header toggleTheme={toggleTheme} theme={theme} />
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route path="/country" component={CountryPage} />
+        <Route path="/country/:alpha3Code" component={CountryPage} />
       </Switch>
     </>
   );

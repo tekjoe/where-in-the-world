@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -120,6 +121,9 @@ export default props => {
   } = data.country;
   return (
     <Container>
+      <Helmet>
+        <title>{`Flaggy | ${name}`}</title>
+      </Helmet>
       <CountryPage>
         <BackButton to="/">
           <BackIcon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -175,7 +179,10 @@ export default props => {
             <h2>Border Countries:</h2>
             {data.country.borders
               ? borders.map(neighbor => (
-                  <CountryInfo.Neighbor to={`/country/${neighbor}`}>
+                  <CountryInfo.Neighbor
+                    to={`/country/${neighbor}`}
+                    key={neighbor}
+                  >
                     {neighbor}
                   </CountryInfo.Neighbor>
                 ))

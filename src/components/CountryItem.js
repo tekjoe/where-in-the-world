@@ -32,7 +32,7 @@ export default ({ country }) => {
   const { name, population, region, flag, capital, alpha3Code } = country;
   return (
     <CountryItem to={`country/${alpha3Code}/`}>
-      <CountryItem.Image src={flag} />
+      <CountryItem.Image src={flag} alt={name} />
       <CountryItem.Body>
         <h4>{name}</h4>
         <p>

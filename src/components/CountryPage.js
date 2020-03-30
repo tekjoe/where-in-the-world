@@ -117,7 +117,7 @@ export default props => {
     <Container>
       <CountryPage>
         <BackButton to="/">Back</BackButton>
-        <CountryImage src={flag} />
+        <CountryImage src={flag} alt={name} />
         <CountryInfo>
           <CountryInfo.Col>
             <h1>{name}</h1>

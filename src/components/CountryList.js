@@ -43,6 +43,10 @@ const SearchInput = styled.input`
   }
 `;
 
+SearchInput.Label = styled.label`
+  display: none;
+`;
+
 export default () => {
   const [data, setData] = useState({ countries: [] });
   const [search, setSearch] = useState("");
@@ -69,7 +73,9 @@ export default () => {
   return (
     <CountryList>
       <CountryList.Search>
+        <SearchInput.Label htmlFor="search">Search</SearchInput.Label>
         <SearchInput
+          id="search"
           placeholder="Search for a country..."
           value={search}
           onChange={e => {

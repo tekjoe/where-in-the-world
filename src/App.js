@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Router } from "react-router-dom";
+import AppRouter from "./routers/AppRouter";
+import { createBrowserHistory } from "history";
+import { createGlobalStyle } from "styled-components";
 
-function App() {
+const GlobalStyle = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,600,800&display=swap');
+  *,*::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  };
+  html {
+    font-family: 'Helvetica Neue', sans-serif;
+  }
+  body {
+    background: hsl(207, 26%, 17%);
+    color: hsl(0, 0%, 100%);
+    font-size: 1rem;
+  }
+`;
+
+const history = createBrowserHistory();
+
+export default () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyle />
+      <Router history={history}>
+        <AppRouter />
+      </Router>
+    </>
   );
-}
-
-export default App;
+};

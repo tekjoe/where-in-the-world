@@ -69,6 +69,26 @@ CountryInfo.Neighbor = styled(Link)`
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
 `;
 
+const BackButton = styled(Link)`
+  background: ${({ theme }) => theme.elementBackground};
+  padding: 0.5rem 2rem;
+  display: block;
+  width: max-content;
+  text-decoration: none;
+  color: ${({ theme }) => theme.color};
+  border-radius: 0.25rem;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
+  grid-column: 1/-1;
+  margin-bottom: 3rem;
+  &:before {
+    content: "⬅";
+    margin-right: 1rem;
+  }
+  @media (min-width: 768px) {
+    margin-bottom: 0;
+  }
+`;
+
 export default props => {
   const [data, setData] = useState({ country: [] });
   useEffect(() => {
@@ -96,6 +116,7 @@ export default props => {
   return (
     <Container>
       <CountryPage>
+        <BackButton to="/">Back</BackButton>
         <CountryImage src={flag} />
         <CountryInfo>
           <CountryInfo.Col>

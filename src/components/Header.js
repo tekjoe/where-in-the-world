@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import sun from "../images/sun.svg";
-import moon from "../images/moon.svg";
 
 const Container = styled.div`
   max-width: 1440px;
@@ -33,7 +31,16 @@ Header.ThemeToggler = styled.a`
   align-items: center;
   cursor: pointer;
   span {
-    margin-right: 1rem;
+    margin-right: 0.5rem;
+  }
+`;
+
+const AdjustIcon = styled.svg`
+  height: 20px;
+  width: 20px;
+  margin-right: 0.5rem;
+  path {
+    fill: ${({ theme }) => theme.color};
   }
 `;
 
@@ -45,7 +52,12 @@ export default ({ toggleTheme, theme }) => {
           <Header.Title to="/">Where in the world?</Header.Title>
           <Header.ThemeToggler onClick={toggleTheme}>
             <span>
-              <img src={theme === "dark" ? moon : sun} alt={theme} />
+              <AdjustIcon
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+              >
+                <path d="M10 2v16a8 8 0 1 0 0-16zm0 18a10 10 0 1 1 0-20 10 10 0 0 1 0 20z" />
+              </AdjustIcon>
             </span>
             {`${theme.charAt(0).toUpperCase() + theme.slice(1)} Mode`}
           </Header.ThemeToggler>
